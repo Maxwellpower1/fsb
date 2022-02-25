@@ -1,0 +1,18 @@
+# Python:
+__pycache__/
+*.py[cod]
+
+# config
+*_x.py
+*_x.txt
+*.con
+*.csv
+
+*.db
+docs/
+
+dao_quote/backtest/
+# System Log & others
+*.log
+*.pid
+.DS_Store
