@@ -7,6 +7,7 @@ __pycache__/
 *_x.txt
 *.con
 *.csv
+*.yaml
 
 *.db
 docs/
