@@ -1,0 +1,10 @@
+aiohttp==3.7.4.post0
+mongoengine==0.23.1
+psutil==5.7.2
+pycryptodome==3.11.0
+pymongo==3.11.4
+pyOpenSSL==21.0.0
+PyYAML==5.1
+requests==2.24.0
+thriftpy2==0.4.14
+urllib3==1.25.11
