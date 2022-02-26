@@ -1,0 +1,142 @@
+compute:
+  channel: quote
+  lpush_record_mq: wss_record_mq
+  period_list: [3min, 15min, 30min, 1hour]
+  bar_key_name_list: ['okexf_eos_usd-quarter_kline', 'okexf_btc_usd-quarter_kline', 'huobif_btc_usd-quarter_kline']
+
+collect:
+  channel: quote
+  lpush_record_mq: wss_record_mq
+  timer_period_list: [1, 3, 5, 60]
+  exchange_dict:
+    okex: ['btc_usdt', 'eos_usdt', 'ltc_usdt', 'eth_usdt', 'xrp_usdt', 'okb_usdt']
+    okexf: ['btc_usd-quarter', 'eos_usd-quarter', 'ltc_usd-quarter', 'eth_usd-quarter', 'xrp_usd-quarter',
+            'btc_usd-bi_quarter', 'eos_usd-bi_quarter', 'ltc_usd-bi_quarter', 'eth_usd-bi_quarter', 'xrp_usd-bi_quarter',
+            'btc_usd-this_week', 'eos_usd-this_week', 'ltc_usd-this_week', 'eth_usd-this_week', 'xrp_usd-this_week',
+            'btc_usd-next_week', 'eos_usd-next_week', 'ltc_usd-next_week', 'eth_usd-next_week', 'xrp_usd-next_week',
+            'btc_usdt-quarter', 'eos_usdt-quarter', 'ltc_usdt-quarter', 'eth_usdt-quarter', 'xrp_usdt-quarter',
+            'btc_usdt-bi_quarter', 'eos_usdt-bi_quarter', 'ltc_usdt-bi_quarter', 'eth_usdt-bi_quarter', 'xrp_usdt-bi_quarter',
+            'btc_usdt-this_week', 'eos_usdt-this_week', 'ltc_usdt-this_week', 'eth_usdt-this_week', 'xrp_usdt-this_week',
+            'btc_usdt-next_week', 'eos_usdt-next_week', 'ltc_usdt-next_week', 'eth_usdt-next_week', 'xrp_usdt-next_week']
+    huobi: ['btc_usdt', 'eos_usdt', 'ltc_usdt', 'eth_usdt', 'xrp_usdt']
+    huobif: ['btc_usd-quarter', 'eos_usd-quarter', 'ltc_usd-quarter', 'eth_usd-quarter',
+             'btc_usd-this_week', 'eos_usd-this_week', 'ltc_usd-this_week', 'eth_usd-this_week',
+             'btc_usd-next_week', 'eos_usd-next_week', 'ltc_usd-next_week', 'eth_usd-next_week']
+    binance: ['btc_usdt', 'eos_usdt', 'ltc_usdt', 'eth_usdt', 'xrp_usdt']
+  important_key_name_list:
+    - okexf_btc_usd-quarter_kline
+    - okexf_eos_usd-quarter_kline
+    - huobif_btc_usd-quarter_kline
+  type_list:
+    - ticker
+    - kline
+    - depth
+    # - trade
+  wss_exchange_dict:
+    okex:
+      - btc_usdt
+    okexf:
+      - btc_usd-quarter
+      - btc_usd-bi_quarter
+      - eth_usd-quarter
+      - eos_usd-quarter
+      - xrp_usd-quarter
+    huobi:
+      - btc_usdt
+    huobif:
+      - btc_usd-quarter
+    binance:
+      - btc_usdt
+  wss_type_list:
+    - ticker
+    - depth
+    - trade
+    - depthall
+    # - kline
+  save_exchange_dict:
+    okex:
+      - btc_usdt
+  ctp_md_symbols:
+    [rb2301, rb2205, rb2209, fu2301, fu2205, fu2209,
+     hc2301, hc2205, hc2209, sp2301, sp2205, sp2209,
+     a2301, a2205, a2209, b2301, b2205, b2209,
+     c2301, c2205, c2209, cs2301, cs2205, cs2209,
+     i2301, i2205, i2209, j2301, j2205, j2209,
+     jd2301, jd2205, jd2209, jm2301, jm2205, jm2209,
+     l2301, l2205, l2209, m2301, m2205, m2209,
+     p2301, p2205, p2209, pp2301, pp2205, pp2209,
+     v2301, v2205, v2209, y2301, y2205, y2209,
+     eg2301, eg2205, eg2209, rr2301, rr2205, rr2209,
+     eb2301, eb2205, eb2209,
+     IF2202, IF2203, IF2206, IF2209,
+     IH2202, IH2203, IH2206, IH2209,
+     IC2202, IC2203, IC2206, IC2209,
+     T2209, T2206, T2203,
+     TF2209, TF2206, TF2203,
+     TS2209, TS2206, TS2203,
+     CF301, CF205, CF209, CY301, CY205, CY209,
+     SR301, SR205, SR209, TA301, TA205, TA209,
+     OI301, OI205, OI209, MA301, MA205, MA209,
+     FG301, FG205, FG209, RM301, RM205, RM209,
+     ZC301, ZC205, ZC209, SF301, SF205, SF209,
+     SM301, SM205, SM209, AP301, AP205, AP209,
+     CJ301, CJ205, CJ209, UR301, UR205, UR209,
+     SA301, SA205, SA209]
+  esunny_md_symbols:
+    []
+  ctp_tq_symbols:
+    [rb999, fu999, hc999, sp999, a999, b999, m999,
+     bu999, y999, c999, p999, j999, jm999, l999,
+     v999, pp999, jd999, cs999, i999, eg999, rr999,
+     eb999, CF999, CY999, SR999, TA999, OI999, MA999,
+     FG999, RM999, ZC999, SF999, SM999, AP999, CJ999,
+     UR999, SA999, IF999, IC999, IH999, sc999]
+  ctp_ex_dict:
+    SHFE: [rb, fu, hc, sp, bu, au, ag]
+    DCE: [a, b, m, y, c, p, j, jm, l, v, pp, jd,
+          cs, i, eg, rr, eb]
+    CZCE: [CF, CY, SR, TA, OI, MA, FG, RM, ZC, SF,
+           SM, AP, CJ, UR, SA]
+    CFFEX: [IF, IC, IH]
+    INE: [sc]
+  ts_md_symbols:
+    SH: ['600519', '601636']
+    SZ: ['000698', '000860']
+  tq_ctp_dates:
+    begin_date: 2020.01
+    end_date: 2020.05
+    date: now
+
+resave:
+  wss_type_list:
+    - ticker
+    # - depth
+    # - trade
+    # - depthall
+    # - kline
+  hfd_exchange_dict:
+    # okexf:
+    #   - btc_usd-quarter
+    # okex:
+    #   - okb_usdt
+    ctp:
+      # [rb2301, rb2205, rb2209, fu2301, fu2205, fu2209,
+      #  hc2301, hc2205, hc2209, sp2301, sp2205, sp2209,
+      #  a2301, a2205, a2209, b2301, b2205, b2209,
+      #  c2301, c2205, c2209, cs2301, cs2205, cs2209,
+      #  i2301, i2205, i2209, j2301, j2205, j2209,
+      #  jd2301, jd2205, jd2209, jm2301, jm2205, jm2209,
+      #  l2301, l2205, l2209, m2301, m2205, m2209,
+      #  p2301, p2205, p2209, pp2301, pp2205, pp2209,
+      #  v2301, v2205, v2209, y2301, y2205, y2209,
+      #  eg2301, eg2205, eg2209, rr2301, rr2205, rr2209,
+      #  eb2301, eb2205, eb2209,
+      #  CF301, CF205, CF209, CY301, CY205, CY209,
+      #  SR301, SR205, SR209, TA301, TA205, TA209,
+      #  OI301, OI205, OI209, MA301, MA205, MA209,
+      #  FG301, FG205, FG209, RM301, RM205, RM209,
+      #  ZC301, ZC205, ZC209, SF301, SF205, SF209,
+      #  SM301, SM205, SM209, AP301, AP205, AP209,
+      #  CJ301, CJ205, CJ209, UR301, UR205, UR209,
+      #  SA301, SA205, SA209]
+      [CF205, CF301, FG205, FG301]
